@@ -1,2 +1,2 @@
 # terraform-template-aws
-Repository for template Terraform Code for provision AWS service
+Repository of template Terraform codes for provision AWS service
