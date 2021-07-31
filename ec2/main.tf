@@ -1,16 +1,18 @@
-# Template configuration for provision Amazon EC2 with latest ubuntu 20.04 AMI
-# AMI ID is imported from default aws SSM parameter store
-# Credential is using shared credential file as reference
-# Keypair is using existing Keypair
-# Variables are referenced from variables.tf file
-# Outputs are referenced from outputs.tf file
+/*
+Template configuration for provision Amazon EC2 with latest ubuntu 20.04 AMI
+AMI ID is imported from default aws SSM parameter store
+Credential is using shared credential file as reference
+Keypair is using existing Keypair
+Variables are referenced from variables.tf file
+Outputs are referenced from outputs.tf file
+*/
 
 # Setup terraform aws provider and version
 terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 3.49.0" # Please change version that will be used here
+      version = "~>= 3.49" # Please change version that will be used here
     }
   }
 }
