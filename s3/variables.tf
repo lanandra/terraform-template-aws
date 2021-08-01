@@ -9,7 +9,7 @@ variable "aws_credential_file" {
 variable "aws_credential_profile" {
   type        = string
   description = "AWS profile used for provision services"
-  default     = "ludes-terraform-admin"
+  default     = "your-profile-name"
 }
 
 # Setup S3 acl
