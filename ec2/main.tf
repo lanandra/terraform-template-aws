@@ -14,6 +14,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 3.49" # Please change version that will be used here
     }
+    template = {
+      source = "hashicorp/template"
+      version = "~> 2.2" # Please change version that will be used here
+    }
   }
 }
 
@@ -41,12 +45,18 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+# Reference for EC2 user-data
+data "template_file" "user-data" {
+  template = "${file("./user-data.sh")}"
+}
+
 # Setup EC2 instance using ubuntu AMI
 resource "aws_instance" "your_ec2_instance_name" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.ec2_instance_type
   associate_public_ip_address = true
   key_name                    = "your_key_pair_name"
+  user_data                   = data.template_file.user-data.rendered
 
   root_block_device {
     volume_size = var.ec2_volume_size
