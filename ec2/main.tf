@@ -7,7 +7,7 @@ Variables are referenced from variables.tf file
 Outputs are referenced from outputs.tf file
 */
 
-# Setup terraform aws provider and version
+# Setup terraform provider(s) and version
 terraform {
   required_providers {
     aws = {
