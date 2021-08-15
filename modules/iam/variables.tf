@@ -1,17 +1,3 @@
-# Define path to aws credentials file
-variable "aws_credential_file" {
-  type        = string
-  description = "Path to aws credentials file"
-  default     = "~/.aws/credentials"
-}
-
-# Define aws profile
-variable "aws_credential_profile" {
-  type        = string
-  description = "AWS profile used for provision services"
-  default     = "your-profile-name"
-}
-
 # Define role name
 variable "iam-role-name" {
   type        = string

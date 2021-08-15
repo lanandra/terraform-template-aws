@@ -12,11 +12,11 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.49" # Please change version that will be used here
+      version = "3.53.0" # Please change version that will be used here
     }
     template = {
       source = "hashicorp/template"
-      version = "~> 2.2" # Please change version that will be used here
+      version = "2.2.0" # Please change version that will be used here
     }
   }
 }
@@ -50,6 +50,11 @@ data "template_file" "user-data" {
   template = "${file("./user-data.sh")}"
 }
 
+# Reference module for IAM instance profile
+module "instance_profile" {
+  source = "../modules/iam/"
+}
+
 # Setup EC2 instance using ubuntu AMI
 resource "aws_instance" "your_ec2_instance_name" {
   ami                         = data.aws_ami.ubuntu.id
@@ -57,6 +62,7 @@ resource "aws_instance" "your_ec2_instance_name" {
   associate_public_ip_address = true
   key_name                    = "your_key_pair_name"
   user_data                   = data.template_file.user-data.rendered
+  iam_instance_profile        = module.instance_profile.iam-instance-profile-name
 
   root_block_device {
     volume_size = var.ec2_volume_size
@@ -65,4 +71,8 @@ resource "aws_instance" "your_ec2_instance_name" {
   tags = {
     Name = "your_tag" # Please change name tag here
   }
+
+  depends_on = [
+    module.instance_profile.iam-instance-profile-name
+  ]
 }
