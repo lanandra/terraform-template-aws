@@ -3,6 +3,8 @@ Template configuration for provision Amazon EC2 with latest ubuntu 20.04 AMI
 AMI ID is imported from default aws SSM parameter store
 Credential is using shared credential file as reference
 Keypair is using existing Keypair
+EC2 will be provided with IAM Instance Profile/IAM Role with reference from module
+EC2 will run startup script/user data that rendered from user-data.sh
 Variables are referenced from variables.tf file
 Outputs are referenced from outputs.tf file
 */

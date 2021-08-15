@@ -1,7 +1,8 @@
 /*
 Template configuration for provision Amazon IAM Role
 Role act as assume role for EC2 service
-Current policies set to list of AWS managed polices
+Current policies set to list of AWS managed polices that include EC2 full access and S3 full access
+Please change policy as you wish. Due to demo/template purpose, policies not granted with least privileged
 Credential is using shared credential file as reference
 Variables are referenced from variables.tf file
 Outputs are referenced from outputs.tf file
