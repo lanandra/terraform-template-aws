@@ -18,6 +18,7 @@ variable "iam-role-policy-attachment" {
   description = "List of IAM policies"
   default     = [
                   "arn:aws:iam::aws:policy/AmazonEC2FullAccess",
-                  "arn:aws:iam::aws:policy/AmazonS3FullAccess" 
+                  "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+                  "arn:aws:iam::aws:policy/AmazonSSMFullAccess"
                 ]
 }

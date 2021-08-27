@@ -3,7 +3,6 @@
 # Shell script to install several applications from user data when bootstapping ec2
 # Script will run on user ubuntu
 # Applications that will be installed consist of aws cli, docker container runtime and docker compose
-# Might need to relogin before aws cli can fully functional or you can issued command aws --version to verify
 
 # Install aws cli
 sudo -u ubuntu

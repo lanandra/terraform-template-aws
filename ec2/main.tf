@@ -30,26 +30,9 @@ provider "aws" {
   profile                 = var.aws_credential_profile
 }
 
-# Get latest public ubuntu AMI ID from Parameter Store in chosen region
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
-}
-
 # Reference for EC2 user-data
 data "template_file" "user-data" {
-  template = "${file("./user-data.sh")}"
+  template = "${file("./user-data.sh")}" # Change whether to use ubuntu or amazon-linux-2
 }
 
 # Reference module for IAM instance profile
@@ -59,7 +42,7 @@ module "instance_profile" {
 
 # Setup EC2 instance using ubuntu AMI
 resource "aws_instance" "your_ec2_instance_name" {
-  ami                         = data.aws_ami.ubuntu.id
+  ami                         = data.aws_ami.ubuntu.id # Change whether to use ubuntu or amazon-linux-2
   instance_type               = var.ec2_instance_type
   associate_public_ip_address = true
   key_name                    = "your_key_pair_name"
