@@ -30,8 +30,8 @@ variable "iam-role-path" {
 variable "iam-role-policy-attachment" {
   type        = list(string)
   description = "List of IAM policies"
-  default     = [
-                  "arn:aws:iam::aws:policy/AmazonEC2FullAccess",
-                  "arn:aws:iam::aws:policy/AmazonS3FullAccess" 
-                ]
+  default = [
+    "arn:aws:iam::aws:policy/AmazonEC2FullAccess",
+    "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+  ]
 }
