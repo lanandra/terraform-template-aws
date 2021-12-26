@@ -5,25 +5,11 @@ variable "aws_region" {
   default     = "ap-southeast-1"
 }
 
-# Define path to aws credentials file
-variable "aws_credential_file" {
-  type        = string
-  description = "Path to aws credentials file"
-  default     = "~/.aws/credentials"
-}
-
-# Define aws profile
-variable "aws_credential_profile" {
-  type        = string
-  description = "AWS profile used for provision services"
-  default     = "your-profile-name"
-}
-
 # Setup Availability Zone
-variable "az_apse_1a" {
-  type        = string
+variable "availability_zone" {
+  type        = list(string)
   description = "Availability Zone used by subnet"
-  default     = "ap-southeast-1a"
+  default     = ["ap-southeast-1a", "ap-southeast-1b", "ap-southeast-1c"]
 }
 
 # Setup Default Route

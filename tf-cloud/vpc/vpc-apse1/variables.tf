@@ -6,10 +6,10 @@ variable "aws_region" {
 }
 
 # Setup Availability Zone
-variable "az_apse_1a" {
-  type        = string
+variable "availability_zone" {
+  type        = list(string)
   description = "Availability Zone used by subnet"
-  default     = "ap-southeast-1a"
+  default     = ["ap-southeast-1a", "ap-southeast-1b", "ap-southeast-1c"]
 }
 
 # Setup Default Route
