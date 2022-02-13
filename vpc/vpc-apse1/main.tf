@@ -2,10 +2,10 @@
 terraform {
   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = "your organization"
+    organization = "your-organization"
 
     workspaces {
-      name = "your workspace"
+      name = "your-vpc-workspace"
     }
   }
 }
@@ -15,11 +15,11 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.57.0"
+      version = "~> 3.74.0"
     }
   }
 
-  required_version = ">= 1.0.6"
+  required_version = ">= 1.1.5"
 }
 
 # Setup AWS provider
