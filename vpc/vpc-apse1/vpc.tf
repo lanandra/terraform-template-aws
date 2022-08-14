@@ -1,7 +1,7 @@
 # Create VPC from module
 # Change environment name, CIDR blocks and additional tags as needed
 module "vpc_staging" {
-  source = "../../modules/vpc/vpc-apse1/"
+  source = "../../modules/vpc/"
 
   environment_name         = "staging"
   vpc_cidr                 = "10.1.0.0/16"
@@ -19,7 +19,7 @@ module "vpc_staging" {
 }
 
 module "vpc_production" {
-  source = "../../modules/vpc/vpc-apse1/"
+  source = "../../modules/vpc/"
 
   environment_name         = "production"
   vpc_cidr                 = "10.2.0.0/16"

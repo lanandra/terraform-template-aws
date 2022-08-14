@@ -2,7 +2,7 @@
 
 # ec2 demo ubuntu in private subnet
 module "demo_ubuntu_private" {
-  source = "../../modules/ec2-apse1/ec2-ubuntu"
+  source = "../../modules/ec2-ubuntu"
   count  = 1
 
   associate_public_ip = false

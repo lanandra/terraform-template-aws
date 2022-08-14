@@ -1,6 +1,6 @@
 # Create s3 bucket from module
 module "your_domain" {
-  source = "../../modules/s3/s3-apse1/static-website-hosting/"
+  source = "../../modules/s3/static-website-hosting/"
 
   bucket_name        = "yourdomain.com"
   redirect_host_name = "yourredirecturl.com/path"

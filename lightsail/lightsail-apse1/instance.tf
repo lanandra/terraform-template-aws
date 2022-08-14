@@ -1,6 +1,6 @@
 # Create lightsail instance from module
 module "wordpress_sandbox" {
-  source = "../../modules/lightsail/lightsail-apse1/wordpress/"
+  source = "../../modules/lightsail/wordpress/"
 
   instance_name     = "your-wordpress"
   availability_zone = var.availability_zone[0]
