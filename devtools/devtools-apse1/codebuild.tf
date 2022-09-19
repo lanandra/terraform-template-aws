@@ -1,6 +1,6 @@
 # Create CodeBuild project from module
 module "your_module_name" {
-  source = "../../modules/devtools/codebuild_github_dockerhub/"
+  source = "../../modules/devtools/codebuild-github-dockerhub/"
 
   project_name          = "your-project-name"
   github_repository_url = "https://github.com/youraccount/yourrepository.git"
